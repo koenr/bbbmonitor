@@ -9,4 +9,4 @@ users=$(mongo --quiet mongodb://127.0.1.1:27017/meteor --eval "db.users.count({c
 meetings=$(mongo --quiet mongodb://127.0.1.1:27017/meteor --eval "db.meetings.find()" | grep "meetingEnded\" : false," | wc -l)
 audio=$(/opt/freeswitch/bin/fs_cli -x "show channels" | grep total | sed 's/ total.//')
 
-echo -e "$datum,$users,$meetings,$audio" >> bbb_usage.log
+echo "$datum,$users,$meetings,$audio" >> bbb_usage.log
